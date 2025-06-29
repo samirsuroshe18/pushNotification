@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.post('/send-notification', async (req, res) => {
-    const { token, userId, userName, textMessage } = req.body;
+    const { token, userId, userName, textMessage, profilePic } = req.body;
 
     if (!token || !userId || !userName || !textMessage) {
         return res.status(400).json({
@@ -45,7 +45,8 @@ app.post('/send-notification', async (req, res) => {
         data: {
             userId,
             userName,
-            textMessage
+            textMessage,
+            profilePic
         },
         android: {
             priority: 'high',
