@@ -8,12 +8,13 @@ import { dirname, join } from 'path';
 dotenv.config();
 
 // Firebase Admin Initialization
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const serviceAccountPath = join(__dirname, './service-account-file.json');
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
+// const serviceAccountPath = join(__dirname, './service-account-file.json');
+const serviceAccount = JSON.parse(process.env.FIREBASE_CONFIG);
 
 admin.initializeApp({
-    credential: admin.credential.cert(serviceAccountPath),
+    credential: admin.credential.cert(serviceAccount),
 });
 
 // App Configuration
