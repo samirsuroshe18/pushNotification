@@ -44,6 +44,8 @@ app.post('/send-notification', async (req, res) => {
         },
         data: {
             userId,
+            userName,
+            textMessage
         },
         android: {
             priority: 'high',
